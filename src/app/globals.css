@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+:root {
+  --wine: #4a1226;
+  --wine-soft: #6d2540;
+  --rose: #e48aa8;
+  --rose-soft: #f6bccd;
+  --blush: #fbe3ea;
+  --cream: #fff6f8;
+  --cream-dark: #f7d6e0;
+
+  /* Destaque dos slots de imagem pendentes (propositalmente chamativo). */
+  --pending: #ffe14d;
+  --pending-stripe: #ffd60a;
+  --pending-ink: #2a1a00;
+}
+
+@theme inline {
+  --color-wine: var(--wine);
+  --color-wine-soft: var(--wine-soft);
+  --color-rose: var(--rose);
+  --color-rose-soft: var(--rose-soft);
+  --color-blush: var(--blush);
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+  --color-pending: var(--pending);
+  --color-pending-stripe: var(--pending-stripe);
+  --color-pending-ink: var(--pending-ink);
+  --font-sans: var(--font-jost);
+  --font-serif: var(--font-bodoni);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--wine);
+  font-family: var(--font-jost), sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-bodoni), serif;
+  font-weight: 500;
+}
+
+::selection {
+  background: var(--rose);
+  color: var(--wine);
+}
+
+/* Texto com brilho (gradiente rosa que desliza devagar). */
+.text-glow,
+.text-glow-light {
+  display: inline-block;
+  padding: 0 0.1em 0.06em 0;
+  background-size: 220% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: glow-shift 9s ease-in-out infinite alternate;
+}
+
+.text-glow {
+  background-image: linear-gradient(
+    100deg,
+    #8e2f52 0%,
+    #e48aa8 38%,
+    #b8456a 68%,
+    #e48aa8 100%
+  );
+}
+
+.text-glow-light {
+  background-image: linear-gradient(
+    100deg,
+    #ffd3e1 0%,
+    #ffffff 38%,
+    #f29bb8 70%,
+    #ffd3e1 100%
+  );
+}
+
+@keyframes glow-shift {
+  to {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
+  50% {
+    transform: translateY(-10px) rotate(var(--r, 0deg));
+  }
+}
+
+@utility animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@utility animate-spin-slow {
+  animation: spin-slow 28s linear infinite;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee 38s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .text-glow,
+  .text-glow-light {
+    animation: none;
+  }
+}
+
+#nl-badge-frame,
+iframe[title="Powered by Netlify"] {
+  display: none !important;
+}
