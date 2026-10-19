@@ -65,14 +65,11 @@ export type HeroContent = {
   tagline: string;
   /** Recorte da Gabí (PNG/WebP com fundo transparente). */
   image: ImageAsset;
-  highlights: Stat[];
 };
 
 export type AboutContent = {
   greeting: string;
   title: string;
-  quote: string;
-  anchors: Stat[];
   paragraphs: string[];
   image: ImageAsset;
 };
@@ -82,6 +79,8 @@ export type ProfileContent = {
   highlight: string;
   subtitle: string;
   body: string;
+  /** Resultados concretos em destaque, antes das métricas das plataformas. */
+  results: Stat[];
   tiktok: {
     views: Stat;
     viewers: Stat;
@@ -132,6 +131,8 @@ export type AudienceContent = {
   title: string;
   highlight: string;
   paragraphs: string[];
+  /** Fotos que ilustram o que o público procura (ex.: scarpins, maquiagem). */
+  photos: (ImageAsset & { caption: string })[];
   chips: string[];
   gender: { value: number; label: string; rest: string };
   age: BarDatum[];
@@ -166,6 +167,13 @@ export type Brand = {
   height: number;
 };
 
+export type BrandCategory = {
+  id: string;
+  title: string;
+  /** Em ordem de prioridade: as mais estratégicas primeiro. */
+  brands: string[];
+};
+
 export type BrandsContent = {
   title: string;
   highlight: string;
@@ -174,6 +182,8 @@ export type BrandsContent = {
   /** Quando vazio, a seção mostra um slot pendente para os logos. */
   items: Brand[];
   pending: ImageAsset;
+  directoryTitle: string;
+  categories: BrandCategory[];
 };
 
 export type Feedback = {

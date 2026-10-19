@@ -53,7 +53,31 @@ export function Numbers() {
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-[minmax(0,1fr)] gap-4 md:grid-cols-6">
+        {/* resultados concretos */}
+        <ul className="mt-16 grid grid-cols-[minmax(0,1fr)] gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {profile.results.map((result, index) => (
+            <li key={result.label}>
+              <Reveal className="h-full" delay={index * 0.05}>
+                <Card className="flex h-full flex-col justify-between gap-8 bg-gradient-to-br from-rose/25 via-cream/[0.05] to-transparent p-6 md:p-8">
+                  <p className="whitespace-nowrap font-serif text-6xl leading-none sm:text-7xl lg:text-6xl xl:text-7xl">
+                    <span className="text-glow-light">{result.value}</span>
+                  </p>
+                  <div>
+                    <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-rose-soft">
+                      {result.label}
+                    </p>
+                    <p className="mt-1 text-sm text-cream/65">{result.hint}</p>
+                  </div>
+                </Card>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+
+        <p className="mt-20 text-[11px] font-medium uppercase tracking-[0.24em] text-cream/60">
+          Desempenho nas plataformas
+        </p>
+        <div className="mt-6 grid grid-cols-[minmax(0,1fr)] gap-4 md:grid-cols-6">
           {/* destaque */}
           <Reveal className="md:col-span-4 md:row-span-2">
             <Card className="flex h-full min-h-[17rem] flex-col md:min-h-[22rem] justify-between bg-gradient-to-br from-rose/25 via-cream/[0.05] to-transparent">

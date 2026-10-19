@@ -89,20 +89,6 @@ export function Hero() {
           </div>
         </div>
       </Container>
-
-      {/* linhas de capa */}
-      <div className="border-t border-wine/15">
-        <Container className="grid grid-cols-1 divide-y divide-wine/15 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-          {hero.highlights.map((item) => (
-            <div key={item.label} className="flex items-baseline gap-4 py-6 sm:px-8 sm:first:pl-0">
-              <span className="whitespace-nowrap font-serif text-4xl md:text-5xl">{item.value}</span>
-              <span className="text-[11px] uppercase tracking-[0.2em] opacity-60">
-                {item.label}
-              </span>
-            </div>
-          ))}
-        </Container>
-      </div>
     </section>
   );
 }

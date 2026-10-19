@@ -1,6 +1,7 @@
 import { mediaKit } from "@/data/media-kit";
 import { ContactButton } from "@/components/ui/ContactButton";
 import { Columns, Donut } from "@/components/ui/Charts";
+import { MediaImage } from "@/components/ui/MediaImage";
 import { Reveal } from "@/components/ui/Reveal";
 import { Container, Section, SplitHeading } from "@/components/ui/Section";
 
@@ -44,32 +45,53 @@ export function Audience() {
   return (
     <Section id="publico" className="bg-blush">
       <Container className="py-24 md:py-32">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-20">
+        <div className="grid gap-x-20 gap-y-12 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <SplitHeading
               title={audience.title}
               highlight={audience.highlight}
             />
           </div>
-          <div className="flex flex-col gap-6 text-lg leading-8 lg:col-span-5 lg:pt-4">
+
+          <div className="flex flex-col gap-6 text-lg leading-8 lg:col-span-5 lg:row-span-2 lg:pt-4">
             {audience.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
+            ))}
+            <ul className="mt-2 flex flex-wrap gap-2">
+              {audience.chips.map((chip) => (
+                <li
+                  key={chip}
+                  className="rounded-full border border-wine/25 px-5 py-2 text-[11px] font-medium uppercase leading-normal tracking-[0.2em]"
+                >
+                  {chip}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="grid grid-cols-3 gap-3 sm:gap-5 lg:col-span-7">
+            {audience.photos.map((photo, index) => (
+              <Reveal
+                key={photo.src}
+                delay={index * 0.08}
+                className={index % 2 === 1 ? "mt-8 md:mt-12" : ""}
+              >
+                <figure>
+                  <MediaImage
+                    {...photo}
+                    className="rounded-[1.5rem] shadow-[0_24px_50px_-28px_rgba(74,18,38,0.5)]"
+                    sizes="(min-width: 1024px) 220px, 33vw"
+                  />
+                  <figcaption className="mt-3 text-[11px] font-medium uppercase tracking-[0.22em] opacity-60">
+                    {photo.caption}
+                  </figcaption>
+                </figure>
+              </Reveal>
             ))}
           </div>
         </div>
 
-        <ul className="mt-12 flex flex-wrap gap-2">
-          {audience.chips.map((chip) => (
-            <li
-              key={chip}
-              className="rounded-full border border-wine/25 px-5 py-2 text-[11px] font-medium uppercase tracking-[0.2em]"
-            >
-              {chip}
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-10 grid grid-cols-[minmax(0,1fr)] items-stretch gap-5 lg:grid-cols-3">
+        <div className="mt-16 grid grid-cols-[minmax(0,1fr)] items-stretch gap-5 lg:grid-cols-3">
           <Reveal className="h-full">
             <Panel index="01" title="Gênero" footer={audience.gender.rest}>
               <Donut value={audience.gender.value} label={audience.gender.label} />

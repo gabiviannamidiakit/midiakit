@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { mediaKit } from "@/data/media-kit";
+import { Reveal } from "@/components/ui/Reveal";
 import { Container, Section } from "@/components/ui/Section";
 import type { Brand } from "@/types/media-kit";
 
@@ -71,6 +72,34 @@ export function Brands() {
           >
             <MarqueeRow brands={firstRow} />
             <MarqueeRow brands={secondRow} reverse />
+          </div>
+        </div>
+
+        <div className="min-w-0 lg:col-span-12 lg:mt-12">
+          <h3 className="font-sans! text-[11px] font-medium uppercase tracking-[0.24em] opacity-60">
+            {brands.directoryTitle}
+          </h3>
+
+          <div className="mt-6 border-b border-wine/25">
+            {brands.categories.map((category, index) => (
+              <Reveal
+                key={category.id}
+                delay={index * 0.08}
+                className="grid grid-cols-[minmax(0,1fr)] gap-6 border-t border-wine/25 py-10 lg:grid-cols-12 lg:gap-10 lg:py-12"
+              >
+                <h4 className="font-serif text-2xl italic leading-tight md:text-3xl lg:col-span-3">
+                  {category.title}
+                </h4>
+
+                <ul className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3 sm:gap-x-8 lg:col-span-9 lg:pt-2 xl:grid-cols-5">
+                  {category.brands.map((name) => (
+                    <li key={name} className="text-sm leading-snug">
+                      {name}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            ))}
           </div>
         </div>
       </Container>
