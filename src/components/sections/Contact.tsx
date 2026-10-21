@@ -48,14 +48,20 @@ export function Contact() {
                   <span className="text-[11px] font-medium uppercase tracking-[0.24em] opacity-70">
                     {row.label}
                   </span>
-                  <span className="flex min-w-0 items-baseline gap-3 font-serif text-[1.3rem] [overflow-wrap:anywhere] min-[360px]:text-2xl md:text-3xl">
+                  <span className="flex min-w-0 items-center gap-3 font-serif text-[1.3rem] [overflow-wrap:anywhere] min-[360px]:text-2xl md:text-3xl">
                     {row.value}
-                    <span
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="size-[0.72em] shrink-0 transition group-hover:translate-x-1"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.75"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       aria-hidden="true"
-                      className="text-xl transition group-hover:translate-x-1"
                     >
-                      ↗
-                    </span>
+                      <path d="M7 17 17 7M9 7h8v8" />
+                    </svg>
                   </span>
                 </a>
               </li>
