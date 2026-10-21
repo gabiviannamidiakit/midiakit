@@ -11,7 +11,10 @@ const OUT = "public/media";
 const jobs = [
   { from: "gravando.jpg", out: "about/gabi-gravando.webp" },
   { from: "scarpins.jpg", out: "audience/scarpins.webp", portrait: true, top: 60 },
+  { from: "scarpins-chao.jpg", out: "audience/scarpins-chao.webp", portrait: true, top: 110 },
+  { from: "maquiagem-produtos.jpg", out: "audience/maquiagem-produtos.webp", portrait: true, top: 50 },
   { from: "maquiagem.jpg", out: "audience/maquiagem.webp", portrait: true, top: 110 },
+  { from: "maquiagem-capsulas.jpg", out: "audience/maquiagem-capsulas.webp", portrait: true, top: 80 },
   { from: "bolsas.jpg", out: "audience/bolsas.webp", crop: { left: 60, top: 185, width: 480, height: 640 } },
 ];
 

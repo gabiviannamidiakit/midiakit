@@ -245,22 +245,49 @@ export const mediaKit: MediaKit = {
     ],
     photos: [
       {
-        alt: "Gabí mostrando scarpins vermelho e azul",
-        aspect: "portrait",
-        src: "/media/audience/scarpins.webp",
         caption: "Scarpins",
+        images: [
+          {
+            alt: "Gabí mostrando scarpins vermelho e azul",
+            aspect: "portrait",
+            src: "/media/audience/scarpins.webp",
+          },
+          {
+            alt: "Gabí sentada no chão, com scarpins ao redor",
+            aspect: "portrait",
+            src: "/media/audience/scarpins-chao.webp",
+          },
+        ],
       },
       {
-        alt: "Gabí mostrando uma bolsa caramelo, com outras bolsas ao fundo",
-        aspect: "portrait",
-        src: "/media/audience/bolsas.webp",
         caption: "Bolsas",
+        images: [
+          {
+            alt: "Gabí mostrando uma bolsa caramelo, com outras bolsas ao fundo",
+            aspect: "portrait",
+            src: "/media/audience/bolsas.webp",
+          },
+        ],
       },
       {
-        alt: "Gabí aplicando batom líquido",
-        aspect: "portrait",
-        src: "/media/audience/maquiagem.webp",
         caption: "Maquiagem",
+        images: [
+          {
+            alt: "Gabí mostrando três body mists coloridos",
+            aspect: "portrait",
+            src: "/media/audience/maquiagem-capsulas.webp",
+          },
+          {
+            alt: "Gabí mostrando três produtos de maquiagem amarelos",
+            aspect: "portrait",
+            src: "/media/audience/maquiagem-produtos.webp",
+          },
+          {
+            alt: "Gabí aplicando batom líquido",
+            aspect: "portrait",
+            src: "/media/audience/maquiagem.webp",
+          },
+        ],
       },
     ],
     chips: ["Classes B e C", "Brasil 95%+", "Dados das plataformas"],
@@ -461,9 +488,9 @@ export const mediaKit: MediaKit = {
     body: "Cada proposta é personalizada de acordo com o briefing, os objetivos da marca e o formato escolhido. Me chama para conversarmos.",
     legal: "© 2026 Gabí Vianna · Todos os direitos reservados · Mídia Kit · Edição 2026",
     image: {
-      alt: "Gabí Vianna em uma porta clássica",
+      alt: "Gabí em frente às letras da L’Oréal, de óculos escuros",
       aspect: "poster",
-      src: "/media/footer/footer-porta.webp",
+      src: "/media/footer/footer-loreal.webp",
     },
   },
 };

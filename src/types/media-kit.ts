@@ -127,12 +127,17 @@ export type PlatformsContent = {
   tabs: PlatformTab[];
 };
 
+export type AudiencePhoto = {
+  caption: string;
+  images: ImageAsset[];
+};
+
 export type AudienceContent = {
   title: string;
   highlight: string;
   paragraphs: string[];
   /** Fotos que ilustram o que o público procura (ex.: scarpins, maquiagem). */
-  photos: (ImageAsset & { caption: string })[];
+  photos: AudiencePhoto[];
   chips: string[];
   gender: { value: number; label: string; rest: string };
   age: BarDatum[];

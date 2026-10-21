@@ -1,7 +1,7 @@
 import { mediaKit } from "@/data/media-kit";
 import { ContactButton } from "@/components/ui/ContactButton";
 import { Columns, Donut } from "@/components/ui/Charts";
-import { MediaImage } from "@/components/ui/MediaImage";
+import { AudiencePhoto } from "@/components/ui/AudiencePhoto";
 import { Reveal } from "@/components/ui/Reveal";
 import { Container, Section, SplitHeading } from "@/components/ui/Section";
 
@@ -72,20 +72,15 @@ export function Audience() {
           <div className="grid grid-cols-3 gap-3 sm:gap-5 lg:col-span-7">
             {audience.photos.map((photo, index) => (
               <Reveal
-                key={photo.src}
+                key={photo.caption}
                 delay={index * 0.08}
                 className={index % 2 === 1 ? "mt-8 md:mt-12" : ""}
               >
-                <figure>
-                  <MediaImage
-                    {...photo}
-                    className="rounded-[1.5rem] shadow-[0_24px_50px_-28px_rgba(74,18,38,0.5)]"
-                    sizes="(min-width: 1024px) 220px, 33vw"
-                  />
-                  <figcaption className="mt-3 text-[11px] font-medium uppercase tracking-[0.22em] opacity-60">
-                    {photo.caption}
-                  </figcaption>
-                </figure>
+                <AudiencePhoto
+                  photo={photo}
+                  className="rounded-[1.5rem] shadow-[0_24px_50px_-28px_rgba(74,18,38,0.5)]"
+                  sizes="(min-width: 1024px) 220px, 33vw"
+                />
               </Reveal>
             ))}
           </div>
