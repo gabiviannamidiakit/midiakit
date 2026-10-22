@@ -488,7 +488,7 @@ export const mediaKit: MediaKit = {
     body: "Cada proposta é personalizada de acordo com o briefing, os objetivos da marca e o formato escolhido. Me chama para conversarmos.",
     legal: "© 2026 Gabí Vianna · Todos os direitos reservados · Mídia Kit · Edição 2026",
     image: {
-      alt: "Gabí em frente às letras da L’Oréal, de óculos escuros",
+      alt: "Gabí em frente às letras da L’Oréal, de blusa branca e calça jeans, segurando os óculos escuros",
       aspect: "poster",
       src: "/media/footer/footer-loreal.webp",
     },
